@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { writable } from "svelte/store";
+import { getFirestore } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -15,23 +17,36 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const user = writable(null);
 export const userType = writable("patients");
+export const db = getFirestore(app);
 
 auth.onAuthStateChanged(u => {
   user.set(u);
 });
 
-export const getUser = () => new Promise(res => {
-  const unsub = user.subscribe(u => {
-    if (u) {
-      res(u);
-      unsub();
-    }
-  });
-});
+export const signout = () => {
+  signOut(auth);
+}
 
 export const login = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then(async (u) => {
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    });
+}
+
+export const signup = (email, password, setUserType) => {
   createUserWithEmailAndPassword(auth, email, password)
-    .then()
+    .then(async (u) => {
+      userType.set(setUserType);
+      await setDoc(doc(db, "users", u.user.uid), {
+        userType: setUserType,
+      });
+    })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
