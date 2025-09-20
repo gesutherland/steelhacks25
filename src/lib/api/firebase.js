@@ -14,6 +14,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const user = writable(null);
+export const userType = writable("patients");
 
 auth.onAuthStateChanged(u => {
   user.set(u);
