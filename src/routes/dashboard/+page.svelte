@@ -17,7 +17,6 @@
     })
 </script>
 
-Dashboard
 {#if $userType == "patients"}
     <PatientDashboard />
 {:else}

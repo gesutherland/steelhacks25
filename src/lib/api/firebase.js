@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { writable } from "svelte/store";
 import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -29,8 +29,10 @@ export const signout = () => {
 
 export const login = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
-    .then(async (u) => {
-      
+    .then((u) => {
+      getDoc(doc(db, "users", u.user.uid)).then(docSnap => {
+        userType.set(docSnap.data.userType);
+      })
     })
     .catch((error) => {
       const errorCode = error.code;
