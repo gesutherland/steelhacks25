@@ -2,9 +2,6 @@
     import { goto } from "$app/navigation";
     import Navbar from "$lib/components/Navbar.svelte";
 </script>
-
-<h1>Welcome to SvelteKit</h1>
-
 <Navbar />
 
 <div>
@@ -37,7 +34,5 @@
         <img src="" alt="">
    </div>
 </div>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
-<button on:click={goto("/providers/login")}>For providers</button>
-<button on:click={goto("/patients/login")}>For patients</button>
+<button on:click={goto("/login")}>For providers</button>
