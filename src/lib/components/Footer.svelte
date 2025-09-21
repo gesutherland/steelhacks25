@@ -16,13 +16,13 @@
 
         <div class="flex gap-3 px-2 mt-3">
             <div class="relative w-16 h-16 group">
-                <img src="ig.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
-                <img src="instagram-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <img src="/ig.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
+                <img src="/instagram-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
             </div>
 
             <div class="relative w-16 h-16 group">
-                <img src="faceb.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
-                <img src="facebook-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <img src="/faceb.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
+                <img src="/facebook-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
             </div>
         
         </div>
