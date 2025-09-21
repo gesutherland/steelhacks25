@@ -38,19 +38,4 @@
     <p class="font-light text-xl text-[#70A0B6] leading-relaxed mt-8">OurChart is the first platform to translate EHR files across systems, all within one simple interface. Quickly export your information, or share it via secure messaging with providers online.</p>
   </div>
 </div>
-
-
-<div class="relative bg-white overflow-hidden">
-  <img 
-    src="/gabblob.svg" 
-    alt="Gabby Blob" 
-    class="absolute top-0 left-10 w-80 h-80 opacity-70 z-20"  
-  />
-
-  <div class="relative z-50 p-8">
-    <h1 class="text-2xl font-bold">My Content</h1>
-  </div>
-</div>
-
-
 <Footer />
