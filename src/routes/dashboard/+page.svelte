@@ -1,6 +1,6 @@
 <script>
     import { auth, user } from "$lib/api/firebase";
-    import LeftDashboardNav from "$lib/components/LeftDashboardNav.svelte";
+    import LeftDashboardNav from "$lib/components/TEMP_DO_NOT_TOUCH.svelte";
     import { onMount } from "svelte";
     import { userType } from "$lib/api/firebase";
     import PatientDashboard from "$lib/components/PatientDashboard.svelte";
