@@ -1,5 +1,5 @@
 <script>
-    import { login, signup, auth, userType, user } from "$lib/api/firebase";
+    import { login, signup, auth, user } from "../api/firebase";
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
     import { page } from "$app/state";

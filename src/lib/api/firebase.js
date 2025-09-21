@@ -18,7 +18,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const user = writable(null);
-export const userType = writable("patients");
 export const db = getFirestore(app);
 export const database = getDatabase(app);
 
@@ -32,9 +31,13 @@ export const signout = () => {
   signOut(auth);
 }
 
-export const isPatient = () => {
-  return get(userType) == "patients"
-}
+export const isPatient = () => new Promise((res) => {
+  getUser().then(u => {
+      getDoc(doc(db, "users", u.uid)).then(docSnap => {
+        res(docSnap.data().userType == "patients")
+      });
+  })
+})
 
 export const sendPatientInfo = async (data) => {
   let u = await getUser();
@@ -60,9 +63,7 @@ export const getUser = () => {
 export const login = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((u) => {
-      getDoc(doc(db, "users", u.user.uid)).then(docSnap => {
-        userType.set(docSnap.data.userType);
-      })
+      console.log(u.user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -74,7 +75,6 @@ export const login = (email, password) => {
 export const signup = (email, password, setUserType) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(async (u) => {
-      userType.set(setUserType);
       await setDoc(doc(db, "users", u.user.uid), {
         userType: setUserType,
         email: email
