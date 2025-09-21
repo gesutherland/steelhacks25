@@ -1,16 +1,13 @@
 <script>
     import { goto } from "$app/navigation";
-    import { auth } from "$lib/api/firebase";
+    import { auth, isPatient } from "$lib/api/firebase";
     import ProfileForm from "$lib/components/ProfileForm.svelte";
     import { onMount } from "svelte";
 
     onMount(async () => {
-        let unsub = auth.onAuthStateChanged(u => {
-            if (!u) {
-                goto("/login");
-                unsub();
-            }
-        })
+        if (!await isPatient()) {
+            goto("/dashboard");
+        }
     })
 </script>
 
