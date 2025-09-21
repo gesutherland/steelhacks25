@@ -2,6 +2,6 @@
     export let url;
 </script>
 
-<a href={url} class="hover:text-blue-600 transition-colors cursor-pointer">
+<a href={url} class="cursor-pointer transition hover:text-blue-600 hover:scale-105 px-3">
     <slot></slot>
 </a>
