@@ -3,7 +3,7 @@
         <div class="flex flex-row items-center justify-between">
             <div class="flex flex-col items-start">
                 <h2 class="text-2xl font-sans font-semibold text-white px-3">Stay Connected</h2>
-                <div class="flex justify-between rounded-full overflow-hidden bg-white w-75 mt-7">
+                <div class="flex justify-between rounded-xl overflow-hidden bg-white w-75 mt-7 p-3">
                     <input
                     type="email" 
                 placeholder=" Your email address" 
