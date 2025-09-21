@@ -3,8 +3,7 @@
     import { page } from '$app/stores';
     import { onMount } from "svelte";
 
-    export let onClick;
-    export let path;
+
 
     export let title;
     export let subtext;
@@ -24,6 +23,4 @@
     </div>
 </div>
 
-<a href={url} class="hover:text-blue-600 transition-colors cursor-pointer">
-    <slot></slot>
-</a>
+<a href={url} class="button">{buttonText}</a>
