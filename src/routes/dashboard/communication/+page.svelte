@@ -2,7 +2,7 @@
     import { goto } from "$app/navigation";
     import { db, getUser, isPatient } from "../../../lib/api/firebase";
     import { onMount } from "svelte";
-    import { arrayUnion, collection, doc, query, updateDoc, where, setDoc, getDoc } from "firebase/firestore";
+    import { arrayUnion, collection, doc, query, updateDoc, where, setDoc, getDoc, getDocs } from "firebase/firestore";
 
     let patients = [];
     let providers = [];
@@ -28,8 +28,18 @@
             let data = await getDoc(doc(db, "medical-profile", u.uid));
             providers = data.data().providers;
         } else {
-            let usersRef = collection(db, "users");
+            let usersRef = collection(db, "medical-profile");
 
+            getDoc(doc(db, "users", u.uid)).then(async docSnap => {
+                console.log(docSnap.data().email);
+                const q = query(usersRef, where("providers", "array-contains", docSnap.data().email));
+                let docs = await getDocs(q);
+                console.log(docs);
+                docs.forEach(x => {
+                    patients.push(x.id);
+                    patients = patients;
+                })
+            });
         }
     }
 
@@ -52,7 +62,7 @@
         </div>
     {:else}
         {#each patients as patient}
-            <div>{patient.email}</div>
+            <div>{patient}</div>
         {/each}
     {/if}
 {/await}
