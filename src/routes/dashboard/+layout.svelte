@@ -1,5 +1,7 @@
 <script>
-    import ProfileForm from "$lib/components/ProfileForm.svelte";
+    import { goto } from "$app/navigation";
+    import { auth } from "$lib/api/firebase";
+    import { onMount } from "svelte";
 
     onMount(async () => {
         let unsub = auth.onAuthStateChanged(u => {
@@ -11,4 +13,4 @@
     })
 </script>
 
-<ProfileForm></ProfileForm>
+<slot></slot>

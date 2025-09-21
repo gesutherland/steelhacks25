@@ -33,6 +33,7 @@ export const signout = () => {
 }
 
 export const isPatient = () => {
+  console.log(get(userType))
   return get(userType) == "patients"
 }
 
