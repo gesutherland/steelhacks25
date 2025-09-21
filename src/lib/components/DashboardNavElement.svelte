@@ -23,3 +23,7 @@
         <div><button class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer" on:click={onClick(path)}>{buttonText}</button></div>
     </div>
 </div>
+
+<a href={url} class="hover:text-blue-600 transition-colors cursor-pointer">
+    <slot></slot>
+</a>
