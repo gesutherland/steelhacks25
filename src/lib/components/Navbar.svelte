@@ -3,27 +3,6 @@
     import NavbarItem from "$lib/components/NavbarItem.svelte";
     let imagePath = "/ourchartlogo.svg";
 
-    function handleNavigation (page) {
-        switch(page) {
-            case 'Home':
-                goto('/');
-                break;
-            case 'Find Your Provider':
-                goto('/providers');
-                break;
-            case 'Support':
-                goto('/support');
-                break;
-            case 'Login':
-                goto('/login');
-                break;
-            case 'Logout':
-                goto('/logout');
-                break;
-            default:
-                goto('/');
-        }
-    }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +13,10 @@
 <div class="flex flex-row justify-between px-15 items-center h-15" >
     <img class="w-39" src={imagePath} alt="OurChart logo" on:click={() => goto('/')}/>
     <div class="flex flex-row gap-x-4 font-large font-sans text-[#286480]">
-        <NavbarItem on:click={() => handleNavigation ('Home')}>Home</NavbarItem>
-        <NavbarItem on:click={() => handleNavigation('Providers')}>Find Your Provider</NavbarItem>
-        <NavbarItem on:click={() => handleNavigation('Support')}>Support</NavbarItem>
-        <NavbarItem on:click={() => handleNavigation('Login')}>Login</NavbarItem>
-        <NavbarItem on:click={() => handleNavigation('Logout')}>Logout</NavbarItem>
+        <NavbarItem on:click={goto("/")}>Home</NavbarItem>
+        <NavbarItem on:click={goto("/providers")}>Find Your Provider</NavbarItem>
+        <NavbarItem on:click={goto("/support")}>Support</NavbarItem>
+        <NavbarItem on:click={goto("/login")}>Login</NavbarItem>
+        <NavbarItem on:click={goto("/logout")}>Logout</NavbarItem>
     </div>
 </div>
