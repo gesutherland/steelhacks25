@@ -19,8 +19,7 @@
     <div class="flex flex-col grow justify-evenly" >
         <div class="font-semibold text-3xl">{title}</div>
         <div class="text-lg">{subtext}</div>
-        <div><button class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer" on:click={onClick(path)}>{buttonText}</button></div>
+        <div><button class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer" on:click={goto(url)}>{buttonText}</button></div>
     </div>
 </div>
 
-<a href={url} class="button">{buttonText}</a>
