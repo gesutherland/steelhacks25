@@ -48,42 +48,54 @@
         updateArrays();
     })
 </script>
+<div class="min-h-screen flex flex-col">
 
-<Navbar />
+  <Navbar />
 
-{#await isPatient()}
-    ...
-{:then p} 
-    {#if p}
+  <main class="flex-grow">
+    {#await isPatient()}
+      <p>Loading...</p>
+    {:then p}
+      {#if p}
         {#each providers as provider}
-            <div>
-                <div>{provider}</div>
-            </div>
+          <div>
+            <div>{provider}</div>
+          </div>
         {/each}
 
         <div>
-            <input type="email" placeholder="doctor.email@pitt.edu" bind:value={newProviderEmail} />
-            <button on:click={addNewProvider}>New Provider</button>
+          <input type="email" placeholder="doctor.email@pitt.edu" bind:value={newProviderEmail} />
+          <button on:click={addNewProvider}>New Provider</button>
         </div>
-    {:else}
+      {:else}
         {#each patients as patient}
-            <div>
-                <h1 class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3">Patients</h1>
-                <div class="flex justify-between font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg p-6 m-4 w-3/4 max-w-4xl">
-                    <div class="font-semibold text-[#286480] text-2xl">
-                        <h1>Evany Rodriguez</h1>   <!--Placeholder name needs variable and shi-->                 
-                    </div>
-                    <div class="flex gap-4">
-                        <button 
-                        on:click={goto("/dashboard/communication/"+patient+"/chat")} class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
-                        >Chat</button>
-                        <button on:click={goto("/dashboard/communication/"+patient+"/profile")} class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer">See Info</button>
-                    </div>
+          <div>
+            <h1 class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3">Patients</h1>
+            <div class="flex justify-between font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg p-6 m-4 w-3/4 max-w-4xl">
+              <div class="font-semibold text-[#286480] text-2xl">
+                <h1>Evany Rodriguez</h1>
                 </div>
-                
+              <div class="flex gap-4">
+                <button
+                  on:click={() => goto(`/dashboard/communication/${patient}/chat`)}
+                  class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                >
+                  Chat
+                </button>
+                <button
+                  on:click={() => goto(`/dashboard/communication/${patient}/profile`)}
+                  class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                >
+                  See Info
+                </button>
+              </div>
             </div>
+          </div>
         {/each}
-    {/if}
-{/await}
+      {/if}
+    {/await}
+  </main>
 
-<Footer />
+  <Footer />
+
+</div>
