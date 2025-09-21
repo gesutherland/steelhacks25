@@ -1,6 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
     import Navbar from "$lib/components/Navbar.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 </script>
 <Navbar />
 
@@ -26,13 +27,6 @@
     </div>
 </div>
 
-<div>
-    <h1>Stay Connected</h1>
-    <input type="email" placeholder="Enter your email" />
-   <div>
-        <img src="" alt="">
-        <img src="" alt="">
-   </div>
-</div>
-
 <button on:click={goto("/login")}>For providers</button>
+
+<Footer />
