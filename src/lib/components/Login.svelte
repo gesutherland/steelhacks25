@@ -28,7 +28,7 @@
 
 <div class="flex flex-col bg-white p-10 rounded-lg shadow-lg gap-4">
     <div class="flex justify-center items-center h-7 pb-4">
-        <img src="/lesswhitespaceourchartlogo.svg" alt="OurChart Logo" class="w-32"/>
+        <img src="/ourchartlogo.svg" alt="OurChart Logo" class="w-32"/>
     </div>
 
     <div class="flex flex-row gap-5">
