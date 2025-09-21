@@ -10,6 +10,7 @@
     export let subtext;
     export let buttonText;
     export let imageUrl;
+    export let url = '#'
 </script>
 
 <div class="flex flex-row font-sans bg-[#95BED0] text-white bg-opacity-70 rounded-lg shadow-lg p-6 m-4 w-3/4 max-w-4xl">

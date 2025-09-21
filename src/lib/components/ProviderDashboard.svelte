@@ -6,7 +6,7 @@
 <Navbar/>
 <div class="flex flex-col items-center justify-center h-screen bg-cover bg-center" style="background-image: url('/unsplash_pKpipZVVEC0.png')">
 
-<DashboardNavElement title="View Patient Profiles" subtext="Access list of patient profiles" imageUrl="/profilepic.svg" buttonText="View Patients"></DashboardNavElement>
-<DashboardNavElement title="View Patient Events" subtext="Access urgent patient information" imageUrl="/Mask group2.svg" buttonText="View Events"></DashboardNavElement>
+<DashboardNavElement title="View Patient Profiles" subtext="Access list of patient profiles" imageUrl="/profilepic.svg" buttonText="View Patients" url="/patients"></DashboardNavElement>
+<DashboardNavElement title="View Patient Events" subtext="Access urgent patient information" imageUrl="/Mask group2.svg" buttonText="View Events" url="/events"></DashboardNavElement>
 </div>
 <Footer/>
