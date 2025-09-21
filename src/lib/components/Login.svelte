@@ -6,8 +6,7 @@
 
     let email;
     let password;
-    export let autoUserType = "patients";
-    let selectedUserType = autoUserType;
+    let selectedUserType = "patients";
 
     onMount(async () => {
         let unsub = auth.onAuthStateChanged(u => {
@@ -32,9 +31,9 @@
     </div>
 
     <div class="flex flex-row gap-5">
-        <input class="checked:bg-black" type="radio" name="userType" id="patients" value="patients" checked={autoUserType=="patients"?"checked":""} on:change={(v) => selectedUserType = "patients"}/>
+        <input class="checked:bg-black" type="radio" name="userType" id="patients" value="patients" checked on:change={(v) => selectedUserType = "patients"}/>
         <label for="patients">I'm a Patient</label>
-        <input class="checked:bg-black" type="radio" name="userType" id="providers" value="providers" checked={autoUserType=="providers"?"checked":""} on:change={(v) => selectedUserType = "providers"}/>
+        <input class="checked:bg-black" type="radio" name="userType" id="providers" value="providers" on:change={(v) => selectedUserType = "providers"}/>
         <label for="providers">I'm a Provider</label>
     </div>
     <input class="border-2 border-gray-300 p-2" bind:value={email} type="email" placeholder="Email" />
