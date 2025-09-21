@@ -1,10 +1,12 @@
 <script>
-    import { sendPatientInfo } from "$lib/api/firebase";
+    import { db, getUser, sendPatientInfo } from "$lib/api/firebase";
     import { isPatient } from "$lib/api/firebase";
 
     import Navbar from "$lib/components/Navbar.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import { onMount } from "svelte";
+    import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+    import { page } from "$app/stores";
 
     // A single object to hold all the form data
     let formData = {
@@ -53,8 +55,34 @@
         ];
     }
 
-    onMount(() => {
-        
+    const downloadInfo = () => {
+        var blob = new Blob([JSON.stringify(formData)], { type: "json" });
+        var a = document.createElement('a');
+
+        a.download = "OurChart_" + formData.personal.firstName + formData.personal.lastName + "_" + new Date().toLocaleDateString("en-US") + ".json";
+        a.href = URL.createObjectURL(blob);
+        a.dataset.downloadurl = ["json", a.download, a.href].join(':');
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(a.href), 300);
+    }
+
+    const saveInfo = async () => {
+        let u = await getUser();
+        let ut = await isPatient();
+        updateDoc(doc(db, "medical-profile", ut ? u.uid : $page.params.slug), {form: formData})
+    }
+
+    onMount(async() => {
+        let u = await getUser();
+        let ut = await isPatient();
+        console.log(ut ? u.uid : $page.params.slug)
+        let d = await getDoc(doc(db, "medical-profile", ut ? u.uid : $page.params.slug));
+        if (d.exists() && d.data().form) {
+            formData = d.data().form
+        }
     })
 </script>
 
@@ -526,22 +554,13 @@
                     ></textarea>
                 </div>
             </div>
-
-            <div class="flex justify-end mt-8">
-                <button
-                    type="button"
-                    class="rounded-md bg-blue-600 px-6 py-2 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                    Save Changes
-                </button>
-            </div>
         </div>
     {/if}
 {/await}
 
 <div class="flex justify-end gap-5 px-28">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Export as Json</button> 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Save Changes</button> 
+    <button on:click={downloadInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Export as Json</button> 
+    <button on:click={saveInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Save Changes</button> 
 </div>
 <div class="h-10">  
 </div>
