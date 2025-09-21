@@ -6,7 +6,7 @@
 </script>
 
 <Navbar />
-<div class="flex flex-col items-center justify-center h-screen" style="background-image: url('/unsplash_pKpipZVVEC0.png')">
+<div class="flex flex-col items-center justify-center h-screen bg-no-repeat bg-cover bg-center" style="background-image: url('/unsplash_pKpipZVVEC0.png')">
     <Login autoUserType={"providers"}></Login>
 </div>
 <Footer />

@@ -27,8 +27,8 @@
 </script>
 
 <div class="flex flex-col bg-white p-10 rounded-lg shadow-lg gap-4">
-    <div class="bg-blue-500 p-4 rounded-lg text-white flex justify-center items-center">
-        <img src="/ourchartlogo.svg" alt="OurChart Logo" class="w-32 mb-4"/>
+    <div class="flex justify-center items-center">
+        <img src="/ourchartlogo.svg" alt="OurChart Logo" class="w-32"/>
     </div>
     <input class="checked:bg-black" type="radio" name="userType" id="patients" value="patients" checked={autoUserType=="patients"?"checked":""} on:change={(v) => selectedUserType = "patients"}/>
     <label for="patients">I'm a Patient</label>
