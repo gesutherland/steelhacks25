@@ -9,7 +9,6 @@
     let loginState
     onMount(async () => {
         auth.onAuthStateChanged(u => {
-            console.log(u);
             loginState = u;
         })
     })

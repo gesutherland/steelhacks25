@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { writable, get } from "svelte/store";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, query, where } from "firebase/firestore";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getDatabase, ref, set, push } from "firebase/database";
 
@@ -29,6 +29,18 @@ auth.onAuthStateChanged(u => {
 
 export const signout = () => {
   signOut(auth);
+}
+
+export const getPatientNameFromID = async (uid) => {
+  let d = await getDoc(doc(db, "medical-profile", uid));
+  if (!d.exists()) return;
+  let p = d.data().form.personal;
+  return p.firstName + " " + p.lastName;
+}
+
+export const getDoctorEmailFromID = async (uid) => {
+  let d = await getDoc(doc(db, "users", uid));
+  return d.data().email;
 }
 
 export const isPatient = () => new Promise((res) => {

@@ -48,7 +48,7 @@
                 const q = query(usersRef, where("email", "==", x));
                 let docs = await getDocs(q);
                 docs.forEach((y) => {
-                    providers = [...providers, {id: y.id, email: x}];
+                    providers = [...providers, { id: y.id, email: x }];
                 });
             });
             providers = providers;
@@ -77,80 +77,79 @@
 <div class="min-h-screen flex flex-col">
     <Navbar />
 
-    <main class="flex-grow">
+    <div class="flex-grow">
         {#await isPatient()}
             <p>Loading...</p>
         {:then p}
             {#if p}
-                <div>
-                    <h1
-                        class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3"
-                    >
-                        Your Healthcare Providers 
-                    </h1>
+                <h1
+                    class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3"
+                >
+                    Your Healthcare Providers
+                </h1>
+                <div class="flex flex-col items-center gap-7">
                     {#each providers as provider}
                         <div
-                            class="flex justify-between font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg p-6 m-4 w-3/4 max-w-4xl"
+                            class="w-[800px] font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg"
                         >
-                            <div class="font-semibold text-[#286480] text-2xl">
-                                <h1>{provider.email}</h1>
-                            </div>
-                            <div class="flex gap-4">
-                                <button
-                                    on:click={() =>
-                                        goto(
-                                            `/dashboard/communication/${provider.id}/chat`,
-                                        )}
-                                    class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                            <div class="flex justify-between p-4 m-4">
+                                <div
+                                    class="font-semibold text-[#286480] text-2xl"
                                 >
-                                    Chat
-                                </button>
-                                <button
-                                    on:click={() =>
-                                        goto(
-                                            `/dashboard/communication/${provider.id}/profile`,
-                                        )}
-                                    class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
-                                >
-                                    See Profile
-                                </button>
+                                    <h1>{provider.email}</h1>
+                                </div>
+                                <div class="flex gap-4">
+                                    <button
+                                        on:click={() =>
+                                            goto(
+                                                `/dashboard/communication/${provider.id}/chat`,
+                                            )}
+                                        class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                                    >
+                                        Chat
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     {/each}
-                </div>
 
-                <div>
-                    <div
-                        class="flex justify-between font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg p-6 m-4 w-3/4 max-w-4xl"
-                    >
-                        <div class="font-semibold text-[#286480] text-2xl">
-                            <input
-                                type="email"
-                                placeholder="doctor.email@pitt.edu"
-                                bind:value={newProviderEmail}
-                            />
-                        </div>
-                        <div class="flex gap-4">
-                            <button
-                                on:click={addNewProvider}
-                                class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
-                            >
-                                Chat
-                            </button>
+                    <div>
+                        <div
+                            class="w-[800px] font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg"
+                        >
+                            <div class="flex justify-between p-4 m-4">
+                                <div
+                                    class="font-semibold text-[#286480] text-2xl"
+                                >
+                                    <input
+                                        type="email"
+                                        placeholder="doctor.email@pitt.edu"
+                                        bind:value={newProviderEmail}
+                                    />
+                                </div>
+                                <div class="flex gap-4">
+                                    <button
+                                        on:click={addNewProvider}
+                                        class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                                    >
+                                        Add New Provider
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             {:else}
+                <h1
+                    class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3"
+                >
+                    Patients
+                </h1>
                 {#each patients as patient}
-                    <div>
-                        <h1
-                            class="flex justify-start font-semibold text-5xl text-[#286480] px-4 py-3"
-                        >
-                            Patients
-                        </h1>
-                        <div
-                            class="flex justify-between font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg p-6 m-4 w-3/4 max-w-4xl"
-                        >
+                    <div
+                        class="w-[800px] font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg"
+                    >
+                        <div class="flex justify-between p-4 m-4">
                             <div class="font-semibold text-[#286480] text-2xl">
                                 <h1>Evany Rodriguez</h1>
                             </div>
@@ -179,5 +178,5 @@
                 {/each}
             {/if}
         {/await}
-    </main>
+    </div>
 </div>
