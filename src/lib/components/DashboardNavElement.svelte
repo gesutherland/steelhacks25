@@ -12,8 +12,10 @@
     export let imageUrl;
 </script>
 
-<div class="mr-auto">
-    <img src={imageUrl} alt="" />
+<div>
+    <div>
+        <img src={imageUrl} alt=""/>
+    </div>
     <div>
         <div>{title}</div>
         <div>{subtext}</div>
