@@ -151,7 +151,7 @@
                                     <select
                                         bind:value={formData.personal.gender}
                                         id="gender"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-slate-100"
                                     >
                                         <option>Unspecified</option>
                                         <option>Female</option>
@@ -322,7 +322,7 @@
                                 <select
                                     bind:value={formData.emergency.relationship}
                                     id="ec-relationship"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-slate-100"
                                 >
                                     <option>Unspecified</option>
                                     <option>Spouse</option>
@@ -483,7 +483,7 @@
                                         <select
                                             bind:value={item.severity}
                                             id="allergy-severity-{item.id}"
-                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-slate-100"
                                         >
                                             <option>Unspecified</option>
                                             <option>Mild</option>
@@ -540,8 +540,8 @@
 {/await}
 
 <div class="flex justify-end gap-5 px-28">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 px-4 rounded">Export</button> 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 px-4 rounded">Save Changes</button> 
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Export</button> 
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Save Changes</button> 
 </div>
 <div class="h-10">  
 </div>
