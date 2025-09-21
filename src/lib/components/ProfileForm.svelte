@@ -291,6 +291,13 @@ Random Data
 
 {/await}
 
+<div class="flex justify-end gap-5 px-28">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 px-4 rounded">Export</button> 
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 px-4 rounded">Save Changes</button> 
+</div>
+<div class="h-10">  
+</div>
+
 <Footer/>
 
 
