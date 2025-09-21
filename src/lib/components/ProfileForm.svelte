@@ -540,8 +540,8 @@
 {/await}
 
 <div class="flex justify-end gap-5 px-28">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Export as Json</button> 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Save Changes</button> 
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer">Export as Json</button> 
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer">Save Changes</button> 
 </div>
 <div class="h-10">  
 </div>

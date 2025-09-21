@@ -11,7 +11,7 @@
         <p class="font-light text-2xl py-2">Access patient records, messages, and updates in seconds</p>
     </div>
     <div class="mt-8">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" on:click={goto('/login')}>Login</button> <!--This is where you get to login page -Colin-->
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer" on:click={goto('/login')}>Login</button> <!--This is where you get to login page -Colin-->
     </div>
 </div>
 

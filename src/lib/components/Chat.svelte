@@ -32,7 +32,7 @@
         {/each}
     </div>
     <div class="flex flex-row bg-amber-950/0 h-[5.25rem] gap-3 p-3">
-        <textarea bind:value={currentMessage} class="resize-none h-16 grow bg-white border-2 border-[#C9C9C9] rounded-md"></textarea>
+        <textarea bind:value={currentMessage} class="resize-none h-16 grow bg-white border-2 border-[#C9C9C9] rounded-md caret-blue-500"></textarea>
         <button on:click={sendButtonClick} class="h-16 w-24 rounded-md bg-[#70A0B6] text-white font-bold hover:scale-105 transition-transform cursor-pointer">Send</button>
     </div>
         
