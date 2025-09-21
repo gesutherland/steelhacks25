@@ -1,7 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
     import Navbar from "$lib/components/Navbar.svelte";
-    import Footer from "$lib/components/Footer.svelte";
 </script>
 <Navbar />
 
@@ -38,4 +37,3 @@
     <p class="font-light text-xl text-[#70A0B6] leading-relaxed mt-8">OurChart is the first platform to translate EHR files across systems, all within one simple interface. Quickly export your information, or share it via secure messaging with providers online.</p>
   </div>
 </div>
-<Footer />

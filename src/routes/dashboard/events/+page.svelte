@@ -1,7 +1,6 @@
 <script>
     import { isPatient } from "$lib/api/firebase";
     import Navbar from "$lib/components/Navbar.svelte";
-    import Footer from "$lib/components/Footer.svelte";
 </script>
 
 <Navbar />
@@ -48,6 +47,4 @@
         </div>
     {/if}
 {/await}
-
-<Footer />
 

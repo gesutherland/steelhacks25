@@ -1,4 +1,4 @@
-<footer class="bg-[#BDCCD6] py-20 relative"> <!--This is where the background is, makes sure it looks cool - Colin-->
+<footer class="bg-[#BDCCD6] py-20"> <!--This is where the background is, makes sure it looks cool - Colin-->
     <div class="px-10">
         <div class="flex flex-row items-center justify-between">
             <div class="flex flex-col items-start">

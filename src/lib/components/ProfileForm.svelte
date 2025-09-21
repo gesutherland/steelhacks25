@@ -3,7 +3,6 @@
     import { isPatient } from "$lib/api/firebase";
 
     import Navbar from "$lib/components/Navbar.svelte";
-    import Footer from "$lib/components/Footer.svelte";
     import { onMount } from "svelte";
     import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
     import { page } from "$app/stores";
@@ -564,7 +563,5 @@
 </div>
 <div class="h-10">  
 </div>
-
-<Footer/>
 
 
