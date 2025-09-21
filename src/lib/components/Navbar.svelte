@@ -12,9 +12,8 @@
     <img class="w-39 cursor-pointer" src={imagePath} alt="OurChart logo" on:click={() => goto('/')}/>
     <div class="flex flex-row gap-x-4 font-large font-sans text-[#286480]">
         <NavbarItem url="/">Home</NavbarItem>
-        <NavbarItem url="/providers">Find Your Provider</NavbarItem>
-        <NavbarItem url="/support">Support</NavbarItem>
+        <NavbarItem url="/dashboard">Dashboard</NavbarItem>
         <NavbarItem url="/login">Login</NavbarItem>
-        <NavbarItem url="/logout">Logout</NavbarItem>
+        <NavbarItem url="/">Logout</NavbarItem>
     </div>
 </div>
