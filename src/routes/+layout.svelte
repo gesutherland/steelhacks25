@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>OurChart</title>
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
