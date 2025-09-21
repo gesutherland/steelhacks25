@@ -11,4 +11,6 @@
     <DashboardNavElement imageUrl="/Mask group.svg" title="Communicate with your provider" subtext="Stay connected with your healthcare team" buttonText="Start Chat"/>
     <DashboardNavElement imageUrl="/Mask group2.svg" title="Update Medical Events" subtext="Input critical information to keep your team up to date" buttonText="Add a new event"/>
 </div>
+
+
 <Footer/>
