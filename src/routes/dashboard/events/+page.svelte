@@ -29,8 +29,23 @@
             </div>
         </div>
     {:else}
-        <h1 class="text-3xl font-bold mb-4">Urgent Events</h1>
-        <p>List of patient events will appear here.</p>
+        <div> 
+            <h1 class="text-3xl text-[#286480] font-bold text mb-4 mt-4 px-4">Urgent Events</h1>
+            <div class="flex-rows justify-between rounded-lg p-6 w-full max-w-2xl mx-auto bg-[#E6F2F7] mb-4">
+                <div class="flex justify-between flex-columns"> 
+                <p class="text-xl font-semibold text-[#286480]">Evany Rodriguez</p>
+                <button class="bg-[#70A0B6] text-white font-semibold py-2 px-5 rounded-lg hover:bg-[#5a8a9e] transition-colors">
+                    Message patient
+                </button>
+                </div>
+                <div class="mt-4">
+                    <p class="text-lg text-[#286480] w-full h-36 p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2">
+                        Hello text here
+                    </p>
+                </div>
+
+            </div>
+        </div>
     {/if}
 {/await}
 
