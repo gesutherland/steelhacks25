@@ -12,10 +12,18 @@
             </div>
         </div>
 
+
+
         <div class="flex gap-3 px-2 mt-3">
-            <img src="/ig.svg" alt="Instagram" class="w-10 h-10 -[#94BAC4] hover:scale-105 transition-transform cursor-pointer"/> 
-            <img src="/faceb.svg" alt="Facebook" class="w-10 h-10 hover:scale-105 transition-transform cursor-pointer"/>
-        </div>
+            <div class="relative w-16 h-16 group">
+                <img src="ig.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
+                <img src="instagram-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            </div>
+
+            <div class="relative w-16 h-16 group">
+                <img src="faceb.svg" alt="" class="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0">
+                <img src="facebook-logo.svg" alt="" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            </div>
         
         </div>
        
@@ -40,7 +48,7 @@
             </div>
         </div>    
 
-
+        </div>
     </div>
 
 </footer>
