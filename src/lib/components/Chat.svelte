@@ -1,22 +1,26 @@
 <script>
+    import { page } from "$app/stores";
     import { addChatMessage, database, getUser, isPatient, selectedPatient, user } from "../api/firebase";
     import { onValue, ref } from "firebase/database";
     import { onMount } from "svelte";
 
     let chatHistory = [];
     let currentMessage = "";
+    let messagesRef;
 
     onMount(async () => {
         let u = await getUser();
-        const messagesRef = ref(database, 'chats/' + (await isPatient() ? u.uid : $selectedPatient));
+        messagesRef = ref(database, 'chats/' + (await isPatient() ? $page.params.slug + u.uid : u.uid + $page.params.slug));
         onValue(messagesRef, (snapshot) => {
+            if (!snapshot.exists()) return;
             const data = Object.values(snapshot.val());
             chatHistory = data;
         });
     })
 
     const sendButtonClick = () => {
-        addChatMessage(currentMessage);
+        if (!messagesRef) return;
+        addChatMessage(currentMessage, messagesRef);
         currentMessage = "";
     }
 </script>

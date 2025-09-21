@@ -44,9 +44,9 @@ export const sendPatientInfo = async (data) => {
   await setDoc(doc(db, "medical-profile", u.uid), data);
 }
 
-export const addChatMessage = (message) => {
+export const addChatMessage = async (message, messagesRef) => {
   let uid = get(user).uid;
-  set(push(ref(database, 'chats/' + uid)), (isPatient() ? "Patient:\n" : "Provider:\n") + message );
+  set(push(messagesRef), (await isPatient() ? "Patient:\n" : "Provider:\n") + message );
 }
 
 export const getUser = () => {
