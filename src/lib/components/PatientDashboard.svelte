@@ -7,9 +7,9 @@
 </script>
 <Navbar/>
 <div class="flex flex-col items-center justify-center h-screen bg-cover bg-center" style="background-image: url('/unsplash_pKpipZVVEC0.png')">
-    <DashboardNavElement imageUrl="/profilepic.svg" title="View your profile" subtext="Access your information & medical history" buttonText="Continue" url="/profile"/>   
-    <DashboardNavElement imageUrl="/Mask group.svg" title="Communicate with your provider" subtext="Stay connected with your healthcare team" buttonText="Start Chat" url="/communication"/>
-    <DashboardNavElement imageUrl="/Mask group2.svg" title="Update Medical Events" subtext="Input critical information to keep your team up to date" buttonText="Add a new event" url="/events"/>
+    <DashboardNavElement imageUrl="/profilepic.svg" title="View your profile" subtext="Access your information & medical history" buttonText="Continue" url="/dashboard/profile"/>   
+    <DashboardNavElement imageUrl="/Mask group.svg" title="Communicate with your provider" subtext="Stay connected with your healthcare team" buttonText="Start Chat" url="/dashboard/communication"/>
+    <DashboardNavElement imageUrl="/Mask group2.svg" title="Update Medical Events" subtext="Input critical information to keep your team up to date" buttonText="Add a new event" url="/dashboard/events"/>
 </div>
 
 
