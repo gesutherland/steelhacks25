@@ -214,11 +214,7 @@ Random Data
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                     <label for="med-name-{item.id}" class="block text-sm font-medium text-slate-600">Name</label>
-<<<<<<< HEAD
-                    <input bind:value={item.name} type="text" id="med-name-{item.id}" placeholder="Medication name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2">
-=======
                     <input bind:value={item.name} type="text" id={"med-name-" + item.id} placeholder="Medication name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2">
->>>>>>> 3d4993f7dc532962249bcef889aed2fdbc1365cc
                     </div>
                     <div>
                     <label for="med-dosage-{item.id}" class="block text-sm font-medium text-slate-600">Dosage</label>
