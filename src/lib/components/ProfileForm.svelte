@@ -559,8 +559,8 @@
 {/await}
 
 <div class="flex justify-end gap-5 px-28">
-    <button on:click={downloadInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Export as Json</button> 
-    <button on:click={saveInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded">Save Changes</button> 
+    <button on:click={downloadInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer">Export as Json</button> 
+    <button on:click={saveInfo} class="bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer">Save Changes</button> 
 </div>
 <div class="h-10">  
 </div>

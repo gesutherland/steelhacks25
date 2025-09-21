@@ -1,24 +1,30 @@
 <script>
     import { isPatient } from "$lib/api/firebase";
-
+    import Navbar from "$lib/components/Navbar.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 </script>
+
+<Navbar />
 
 {#await isPatient()}
     ...
 {:then p} 
     {#if p}
-        <div>
-            <h1 class="flex justify-start text-3xl font-semibold text-[#286480] mb-4">Urgent Events</h1>
-            <div class="flex justify-center rounded-full bg-white w-75">
-                <div class="flex start rounded-full bg-white w-65">
-                    <input
-                    type="text" 
-                    placeholder="Type to enter text" 
-                    class="px-1 text-[#94BAC4]"/>
-                </div>
-                <div class="flex justify-between">
-                    <h2 class="text-3xl font-semibold text-[#286480]">To: Dr. Sarah Johnson</h2>" <!--Doctor Name-->
-                    <button class="px-4 text-gray-600 hover:text-gray-800 bg-[#70A0B6]">Send Message</button>
+        <div class="p-4">
+            <div class="bg-[#E6F2F7] rounded-lg p-6 w-full max-w-2xl mx-auto">
+                
+                <textarea
+                placeholder="The migraines attacks are coming about twice a week now instead of daily..."
+                class="w-full h-52 p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2"
+                ></textarea>
+                
+                <div class="flex justify-between items-center mt-4">
+                
+                <h2 class="text-xl font-semibold text-[#286480]">To: Dr. Sarah Johnson</h2>
+                
+                <button class="bg-[#70A0B6] text-white font-semibold py-2 px-5 rounded-lg hover:bg-[#5a8a9e] transition-colors">
+                    Send Message
+                </button>
                 </div>
             </div>
         </div>
@@ -28,4 +34,5 @@
     {/if}
 {/await}
 
+<Footer />
 
