@@ -29,13 +29,13 @@
 </div>
 <div class="flex justify-between items-start px-20 py-10 gap-10 -mt-35">
   <div class="w-1/2">
-    <img src="/medicalchart.jpg" alt="" class="w-full h-auto -mt-15" />
+    <img src="/medicalchart.jpg" alt="" class="w-full h-64 object-cover -mt-15" />
   </div>
 
   <div class="w-1/2 flex justify-start flex-col mt-8">
     <h1 class="font-medium text-2xl text-[#70A0B6]">Why OurChart?</h1>
     <h1 class="font-semibold text-6xl text-[#286480] leading-tight mt-4">First of its kind</h1>
-    <p class="font-light text-xl text-[#70A0B6] leading-relaxed mt-8">OurChart is the first platform to translate EHR files across systems, all within one simple interface.</p>
+    <p class="font-light text-xl text-[#70A0B6] leading-relaxed mt-8">OurChart is the first platform to translate EHR files across systems, all within one simple interface. Quickly export your information, or share it via secure messaging with providers online.</p>
   </div>
 </div>
 
