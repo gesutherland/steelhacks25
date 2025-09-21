@@ -2,39 +2,48 @@
     import { goto } from "$app/navigation";
     import { db, getUser, isPatient } from "$lib/api/firebase";
     import { onMount } from "svelte";
-    import { collection, query, updateDoc, where } from "firebase/firestore";
+    import { arrayUnion, collection, doc, query, updateDoc, where, setDoc, getDoc } from "firebase/firestore";
 
     let patients = [];
     let providers = [];
     
     let newProviderEmail;
 
-    const addNewProvider = async () => {
-        const medProfRef = collection(db, "medical-profile");
+    const addNewProvider = async () => { 
+        let u = await getUser();
+        const medProfRef = doc(db, "medical-profile", u.uid);
 
-        await updateDoc(medProfRef, {
+        await setDoc(medProfRef, {
             providers: arrayUnion(newProviderEmail)
-        });
+        }, { merge: true });
 
         newProviderEmail = "";
+
+        updateArrays();
     }
 
-    onMount(async () => {
-        await getUser();
-
-        const medProfRef = collection(db, "medical-profile");
-
+    const updateArrays = async () => {
+        let u = await getUser();
         if (isPatient()) {
-            
+            let data = await getDoc(doc(db, "medical-profile", u.uid));
+            providers = data.data().providers;
         } else {
 
         }
+    }
+
+    onMount(async () => {
+        let u = await getUser();
+
+        const medProfRef = collection(db, "users");
+
+        updateArrays();
     })
 </script>
 
 {#if isPatient()}
     {#each providers as provider}
-        <div>{provider.email}</div>
+        <div>{provider}</div>
     {/each}
 
     <div>

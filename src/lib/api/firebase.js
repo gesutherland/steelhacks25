@@ -33,7 +33,6 @@ export const signout = () => {
 }
 
 export const isPatient = () => {
-  console.log(get(userType))
   return get(userType) == "patients"
 }
 
@@ -78,6 +77,7 @@ export const signup = (email, password, setUserType) => {
       userType.set(setUserType);
       await setDoc(doc(db, "users", u.user.uid), {
         userType: setUserType,
+        email: email
       });
     })
     .catch((error) => {
