@@ -4,7 +4,6 @@
     import PatientDashboard from "$lib/components/PatientDashboard.svelte";
     import ProviderDashboard from "$lib/components/ProviderDashboard.svelte";
     import { goto } from "$app/navigation";
-    import LogoutButton from "$lib/components/LogoutButton.svelte";
 </script>
 
 {#await isPatient()}
@@ -16,7 +15,3 @@
         <ProviderDashboard />
     {/if}
 {/await}
-
-
-
-<LogoutButton></LogoutButton>

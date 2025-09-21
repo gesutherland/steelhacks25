@@ -29,7 +29,7 @@
             </div>
         </div>
     {:else}
-        <h1 class="text-3xl font-bold mb-4">Patient Events</h1>
+        <h1 class="text-3xl font-bold mb-4">Urgent Events</h1>
         <p>List of patient events will appear here.</p>
     {/if}
 {/await}

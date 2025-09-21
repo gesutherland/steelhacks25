@@ -2,6 +2,7 @@
     import { goto } from "$app/navigation";
     import NavbarItem from "$lib/components/NavbarItem.svelte";
     let imagePath = "/ourchartlogo.svg";
+    import LogoutButton from "./LogoutButton.svelte";
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,9 @@
         <NavbarItem url="/">Home</NavbarItem>
         <NavbarItem url="/dashboard">Dashboard</NavbarItem>
         <NavbarItem url="/login">Login</NavbarItem>
-        <NavbarItem url="/">Logout</NavbarItem>
+        <NavbarItem url="/"><LogoutButton></LogoutButton></NavbarItem>
     </div>
 </div>
+
+
+<LogoutButton></LogoutButton>
