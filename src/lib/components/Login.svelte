@@ -7,6 +7,7 @@
     let email;
     let password;
     let selectedUserType = "patients";
+    let errorText = "";
 
     onMount(async () => {
         let unsub = auth.onAuthStateChanged(u => {
@@ -17,11 +18,11 @@
         })
     })
 
-    const signUp = () => {
-        signup(email, password, selectedUserType);
+    const signUp = async () => {
+        errorText = await signup(email, password, selectedUserType);
     }
-    const logIn = () => {
-        login(email, password);
+    const logIn = async () => {
+        errorText = await login(email, password);
     }
 </script>
 
@@ -40,4 +41,5 @@
     <input class="border-2 border-gray-300 p-2" bind:value={password} type="password" placeholder="Password"/>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" on:click={signUp}>Sign up</button>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" on:click={logIn}>Log in</button>
+    <div class="text-red-500">{errorText}</div>
 </div>

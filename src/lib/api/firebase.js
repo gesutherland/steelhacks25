@@ -72,20 +72,19 @@ export const getUser = () => {
   })
 } 
 
-export const login = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
+export const login = async (email, password) => {
+  return signInWithEmailAndPassword(auth, email, password)
     .then((u) => {
       console.log(u.user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      return error.message;
     });
 }
 
-export const signup = (email, password, setUserType) => {
-  createUserWithEmailAndPassword(auth, email, password)
+export const signup = async (email, password, setUserType) => {
+  return createUserWithEmailAndPassword(auth, email, password)
     .then(async (u) => {
       await setDoc(doc(db, "users", u.user.uid), {
         userType: setUserType,
@@ -94,7 +93,6 @@ export const signup = (email, password, setUserType) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      return error.message;
     });
 }

@@ -1,5 +1,5 @@
 <script>
-    import { db, getUser, sendPatientInfo } from "$lib/api/firebase";
+    import { db, getPatientNameFromID, getUser, sendPatientInfo } from "$lib/api/firebase";
     import { isPatient } from "$lib/api/firebase";
 
     import Navbar from "$lib/components/Navbar.svelte";
@@ -94,7 +94,7 @@
         <div class="max-w-7xl mx-auto p-8 sm:p-12">
             <div>
                 <h1 class="font-semibold text-4xl text-[#286480]">
-                    {p ? "Hello!" : "Hello Doctor"}
+                    {(p ? "Hello {0}!" : "Editing {0}'s profile").replaceAll("{0}", formData.personal.firstName + " " + formData.personal.lastName)}
                 </h1>
                 <p class="font-light text-md text-slate-500 mt-1">
                     {p
