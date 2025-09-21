@@ -1,6 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
-    import { db, getUser, isPatient } from "../../../lib/api/firebase";
+    import { db, getPatientNameFromID, getUser, isPatient } from "../../../lib/api/firebase";
     import { onMount } from "svelte";
     import {
         arrayUnion,
@@ -44,6 +44,7 @@
             providers = [];
             let usersRef = collection(db, "users");
             let data = await getDoc(doc(db, "medical-profile", u.uid));
+            if (!data.exists) {return}
             data.data().providers.map(async (x) => {
                 const q = query(usersRef, where("email", "==", x));
                 let docs = await getDocs(q);
@@ -145,37 +146,43 @@
                 >
                     Patients
                 </h1>
+                <div class="flex flex-col items-center gap-7">
                 {#each patients as patient}
-                    <div
-                        class="w-[800px] font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg"
-                    >
-                        <div class="flex justify-between p-4 m-4">
-                            <div class="font-semibold text-[#286480] text-2xl">
-                                <h1>Evany Rodriguez</h1>
-                            </div>
-                            <div class="flex gap-4">
-                                <button
-                                    on:click={() =>
-                                        goto(
-                                            `/dashboard/communication/${patient}/chat`,
-                                        )}
-                                    class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
-                                >
-                                    Chat
-                                </button>
-                                <button
-                                    on:click={() =>
-                                        goto(
-                                            `/dashboard/communication/${patient}/profile`,
-                                        )}
-                                    class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
-                                >
-                                    See Info
-                                </button>
+                    {#await getPatientNameFromID(patient)}
+                        ...
+                    {:then patientName} 
+                        <div
+                            class="w-[800px] font-sans bg-[#FFFFFF] text-white bg-opacity-70 rounded-lg border border-slate-300 shadow-lg"
+                        >
+                            <div class="flex justify-between p-4 m-4">
+                                <div class="font-semibold text-[#286480] text-2xl">
+                                    <h1>{patientName}</h1>
+                                </div>
+                                <div class="flex gap-4">
+                                    <button
+                                        on:click={() =>
+                                            goto(
+                                                `/dashboard/communication/${patient}/chat`,
+                                            )}
+                                        class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                                    >
+                                        Chat
+                                    </button>
+                                    <button
+                                        on:click={() =>
+                                            goto(
+                                                `/dashboard/communication/${patient}/profile`,
+                                            )}
+                                        class="bg-[#70A0B6] text-white font-bold py-2 px-4 rounded hover:scale-105 transition-transform cursor-pointer"
+                                    >
+                                        See Info
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {/await}
                 {/each}
+                </div>
             {/if}
         {/await}
     </div>

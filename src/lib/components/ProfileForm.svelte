@@ -71,7 +71,7 @@
     const saveInfo = async () => {
         let u = await getUser();
         let ut = await isPatient();
-        updateDoc(doc(db, "medical-profile", ut ? u.uid : $page.params.slug), {form: formData})
+        setDoc(doc(db, "medical-profile", ut ? u.uid : $page.params.slug), {form: formData}, { merge: true })
     }
 
     onMount(async() => {
