@@ -53,7 +53,9 @@
 {:then p} 
     {#if p}
         {#each providers as provider}
-            <div>{provider}</div>
+            <div>
+                <div>{provider}</div>
+            </div>
         {/each}
 
         <div>
@@ -62,7 +64,10 @@
         </div>
     {:else}
         {#each patients as patient}
-            <div>{patient}</div>
+            <div>
+                <button on:click={goto("/dashboard/communication/"+patient+"/chat")}>Chat</button>
+                <button on:click={goto("/dashboard/communication/"+patient+"/profile")}>See Info</button>
+            </div>
         {/each}
     {/if}
 {/await}
