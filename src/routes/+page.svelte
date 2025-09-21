@@ -5,14 +5,16 @@
 </script>
 <Navbar />
 
-<div>
-    <img src="" alt="">
-    <h1>Medical info minus all the fluff</h1>
-    <p>Access patient charts, prescriptions, and updates in seconds</p>
+<div class="flex flex-col items-center justify-center font-sans h-130 bg-[#003A69]/40 bg-blend-multiply bg-cover bg-position-[center_top_-10rem] text-white"style="background-image: url('/doctor.png')">
+    <div class = "text-center" >
+        <h1 class="font-semibold text-5xl">Medical info minus all the fluff</h1>
+        <p class="font-light text-2xl">Access patient charts, prescriptions, and updates in seconds</p>
+    </div>
     <div>
-        <button>Explore Patient Portal</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Explore Patient Portal</button>
         <button>Explore Provider Portal</button>
     </div>
+    
 </div>
 <div>
     <div>
