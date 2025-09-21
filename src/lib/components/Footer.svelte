@@ -11,8 +11,8 @@
         </div>
 
         <div class="flex gap-3 px-2 mt-3">
-            <img src="/instagram-logo.svg" alt="Instagram" class="w-10 h-10 -[#94BAC4]"/> 
-            <img src="/facebook-logo.svg" alt="Facebook" class="w-10 h-10"/>
+            <img src="/ig.svg" alt="Instagram" class="w-10 h-10 -[#94BAC4]"/> 
+            <img src="/faceb.svg" alt="Facebook" class="w-10 h-10"/>
         </div>
     </div>
 
