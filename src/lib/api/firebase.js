@@ -22,6 +22,8 @@ export const userType = writable("patients");
 export const db = getFirestore(app);
 export const database = getDatabase(app);
 
+export const selectedPatient = writable(null);
+
 auth.onAuthStateChanged(u => {
   user.set(u);
 });
@@ -32,6 +34,11 @@ export const signout = () => {
 
 export const isPatient = () => {
   return get(userType) == "patients"
+}
+
+export const sendPatientInfo = async (data) => {
+  let u = await getUser();
+  await setDoc(doc(db, "medical-profile", u.uid), data);
 }
 
 export const addChatMessage = (message) => {

@@ -1,10 +1,12 @@
 <script>
     import Chat from "./Chat.svelte";
-    import LeftDashboardNav from "./LeftDashboardNav.svelte";
+    import DashboardNavElement from "./DashboardNavElement.svelte";
+    import ProfileForm from "./ProfileForm.svelte";
 </script>
 
 Patient Dashboard
-<LeftDashboardNav />
-<div>
-    <Chat></Chat>
+<div class="flex">
+    <DashboardNavElement title="View your profile" />    
+    <DashboardNavElement />
+    <DashboardNavElement />
 </div>

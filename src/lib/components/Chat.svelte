@@ -1,5 +1,5 @@
 <script>
-    import { addChatMessage, database, getUser, isPatient, user } from "$lib/api/firebase";
+    import { addChatMessage, database, getUser, isPatient, selectedPatient, user } from "$lib/api/firebase";
     import { onValue, ref } from "firebase/database";
     import { onMount } from "svelte";
 
@@ -8,10 +8,9 @@
 
     onMount(async () => {
         let u = await getUser();
-        const messagesRef = ref(database, 'chats/' + (isPatient() ? u.uid : "error"));
+        const messagesRef = ref(database, 'chats/' + (isPatient() ? u.uid : $selectedPatient));
         onValue(messagesRef, (snapshot) => {
             const data = Object.values(snapshot.val());
-            console.log(data);
             chatHistory = data;
         });
     })

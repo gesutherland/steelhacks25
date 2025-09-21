@@ -1,6 +1,5 @@
 <script>
-    import LeftDashboardNav from "./LeftDashboardNav.svelte";
+    import Chat from "./Chat.svelte";
 </script>
 
 Provider Dashboard
-<LeftDashboardNav />
