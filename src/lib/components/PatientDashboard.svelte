@@ -6,7 +6,7 @@
 
 Patient Dashboard
 <div class="flex">
-    <DashboardNavElement title="View your profile" />    
-    <DashboardNavElement />
-    <DashboardNavElement />
+    <DashboardNavElement title="View your profile" url="/dashboard/profile"/>    
+    <DashboardNavElement title="Communicate with providers" url="/dashboard/communication"/>
+    <DashboardNavElement title="Update medical events" url="/dashboard/events"/>
 </div>

@@ -3,13 +3,9 @@
 
     export let providerEmail;
 
-    const submitForm = async () => {
-        sendPatientInfo({
-            provider: providerEmail
-        })
-    }
+    
 </script>
 
-Provider Email:
+Random Data
 <input type="email" bind:value={providerEmail}/>
-<button on:click={submitForm}>Save</button>
+<button>Save</button>
