@@ -1,9 +1,8 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
-    function handleClick() {
-        dispatch('click');
-    }
+    export let url;
 </script>
 
-<div><slot></slot></div>
+<button 
+    class="hover:text-blue-600 transition-colors cursor-pointer bg-transparent border-none font-inherit text-inherit p-0"
+    on:click={() => goto(url)}
+><slot></slot></button>
