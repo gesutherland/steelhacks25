@@ -12,7 +12,7 @@
     </div>
     <div>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Explore Patient Portal</button>
-        <button>Explore Provider Portal</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Explore Provider Portal</button>
     </div>
     
 </div>
@@ -31,4 +31,4 @@
 
 <button on:click={goto("/login")}>For providers</button>
 
-<Footer />
+<Footer /> 
