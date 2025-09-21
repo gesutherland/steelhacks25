@@ -29,7 +29,7 @@
 </div>
 <div class="flex justify-between items-start px-20 py-10 gap-10 -mt-35">
   <div class="w-1/2">
-    <img src="/medicalchart.jpg" alt="" class="w-full h-64 object-cover -mt-15" />
+    <img src="/medicalchart.jpg" alt="" class="w-full h-80 object-cover -mt-15" />
   </div>
 
   <div class="w-1/2 flex justify-start flex-col mt-8">
